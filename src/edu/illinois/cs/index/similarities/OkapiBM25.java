@@ -27,8 +27,8 @@ public class OkapiBM25 extends SimilarityBase {
     	float n = docLength;
     	float n_avg = stats.getAvgFieldLength();
     	
-    	double t1 = Math.log((N - df + 0.5)/(df + 0.5));
-    	double t2 = ((k1 + 1)*(c))/((k1*(1-b+b*(n/n_avg)))+c);
+    	double t1 = Math.log( (N - df + 0.5)/(df + 0.5) );
+    	double t2 = ( (k1 + 1)*(c) ) / ( ( k1*( 1-b+(b*(n/n_avg)) ) )+c );
     	double t3 = ((k2+1)*(c))/(k2+c);
     	
     	double r = t1*t2*t3;

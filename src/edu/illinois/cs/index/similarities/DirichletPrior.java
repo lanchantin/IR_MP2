@@ -22,7 +22,12 @@ public class DirichletPrior extends LMSimilarity {
      */
     @Override
     protected float score(BasicStats stats, float termFreq, float docLength) {    	
-        return 0;
+    	double u = 2000;
+    	double alpha = u/(u+docLength);
+    	double ps = (termFreq+ u*model.computeProbability(stats))/(termFreq+u);
+    	
+    	double r = Math.log(ps/(alpha*model.computeProbability(stats))) + queryLength*Math.log(alpha);
+        return (float) r;
     }
 
     @Override

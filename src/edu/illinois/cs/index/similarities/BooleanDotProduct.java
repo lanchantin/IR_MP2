@@ -18,7 +18,11 @@ public class BooleanDotProduct extends SimilarityBase {
     	//getNumberOfDocuments(): total number of documents in the index
     	//getDocFreq(): the number of documents the current term appears in
     	//System.out.println(termFreq);
-        return termFreq;
+    	int r = 0;
+    	if (termFreq >= 1){
+    		r = 1;
+    	}
+        return r;
     }
 
     @Override

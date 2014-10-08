@@ -14,15 +14,12 @@ public class BooleanDotProduct extends SimilarityBase {
      */
     @Override
     protected float score(BasicStats stats, float termFreq, float docLength) {
-    	//getAvgFieldLength(): average document length
-    	//getNumberOfDocuments(): total number of documents in the index
-    	//getDocFreq(): the number of documents the current term appears in
-    	//System.out.println(termFreq);
-    	int r = 0;
     	if (termFreq >= 1){
-    		r = 1;
+    		return 1;
     	}
-        return r;
+    	else{
+    		return 0;
+    	}
     }
 
     @Override

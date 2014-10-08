@@ -28,7 +28,12 @@ public class Evaluate {
 	
 	////This makes it easier for you to run the program in an IDE
 	public static void main(String[] args) throws IOException {
-		String method = "--ok";//specify the ranker you want to test
+		//String method = "--bdp";
+		//String method = "--tfidf";
+		String method = "--ok";
+		//String method = "--pl";
+		//String method = "--jm";
+		//String method = "--dp";
 		
 		_searcher = new Searcher(_indexPath);		
 		Runner.setSimilarity(_searcher, method);

@@ -26,10 +26,8 @@ public class PivotedLength extends SimilarityBase {
     	double t1 = (1+Math.log(1+Math.log(cwd)))/(1-s+(s*n/n_avg));
     	double t3 = Math.log((N+1)/df);
     	
-    	double r = t1*cwq*t3;
     	
-    	
-        return (float) r;
+        return (float) (t1*cwq*t3);
     }
 
     @Override

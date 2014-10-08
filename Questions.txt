@@ -1,0 +1,46 @@
+Question #3
+
+The document analyzer filters prove to be very important.
+When using all of the filters, my MAP (using the optimal parameters), is 0.26156255333674694.
+Without using the stopwords filter, the MAP is 0.2578498890595665, and  without using the stemming filter,the MAP is 0.08684545144222565. The MAP reduction from not using the stemming filter shows how important such a filter proves for retrieval. I believe this is due to the fact that if you do not use the stemming filter, then there are many words that semantically mean almost the same thing, but have different different spellings (e.g. explode, exploding, exploded etc.). If someone searches for "exploded", we would want to retreive documents with explode in it. For specific queries and documents, stopwords, lenght can prove to be very important as well. 
+
+
+
+Question #4
+
+Boolean VS. TF-IDF
+	Query: estimates of the density of ionization and temperature in the solar corona
+	Boolean Avg Precision: 0.31714285714285717
+	TF-IDF Avg Precision: 0.8521031746031745
+
+	==> This is probably due to the fact that ...
+
+
+TF-IDF VS. BM25
+	Query: variable capacitance amplifiers
+	TF-IDF Avg Precision: 0.12333333333333334
+	BM25 Avg Precision: 0.6365476190476189
+
+	==> This is probably due to ...
+
+
+BM25 VS. Dirichlet Prior
+
+Query: control characteristics of sampling servo systems
+  1. 6947
+  2. 4412
+  3. 6138
+  4. 7647
+X 5. 6051
+  6. 7762
+X 7. 6866
+X 8. 6332
+X 9. 9788
+X 10. 1735
+Average Precision: 0.4833333333333333
+
+
+
+
+
+

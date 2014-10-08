@@ -25,9 +25,7 @@ public class JelinekMercer extends LMSimilarity {
     	double lambda = 0.9;
     	double ps = (1-lambda)*(termFreq/docLength) + lambda*model.computeProbability(stats);
     	
-    	
-    	double r = Math.log(ps/(lambda*model.computeProbability(stats))) + queryLength*Math.log(lambda);
-        return (float) r;
+        return (float) (Math.log(ps/(lambda*model.computeProbability(stats))) + queryLength*Math.log(lambda));
     }
 
     @Override

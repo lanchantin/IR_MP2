@@ -1,8 +1,28 @@
+
+Question #2
+
+BM25 -- MAP: 0.26156255333674694
+		k1 = 1.2;
+    	k2 = 0.1;
+    	b = 0.75;
+
+Dirichlet Prior -- MAP: 0.16246159754224268
+				   u = 400;
+
+
 Question #3
 
 The document analyzer filters prove to be very important.
-When using all of the filters, my MAP (using the optimal parameters), is 0.26156255333674694.
-Without using the stopwords filter, the MAP is 0.2578498890595665, and  without using the stemming filter,the MAP is 0.08684545144222565. The MAP reduction from not using the stemming filter shows how important such a filter proves for retrieval. I believe this is due to the fact that if you do not use the stemming filter, then there are many words that semantically mean almost the same thing, but have different different spellings (e.g. explode, exploding, exploded etc.). If someone searches for "exploded", we would want to retreive documents with explode in it. For specific queries and documents, stopwords, lenght can prove to be very important as well. 
+
+The lowercase and length filters do not have any impact on the queries in this evaluation package, but I would assume that they would help if there were queries and documents with a high degree of varying cases and lengths.
+
+When using all of the filters, my MAP (using the optimal parameters), is 0.2615.
+Without using the stemming filter,the MAP is 0.0868. The MAP reduction from not using the stemming filter shows how important such a filter proves for retrieval. I believe this is due to the fact that if you do not use the stemming filter, then there are many words that semantically mean almost the same thing, but have different different spellings (e.g. explode, exploding, exploded etc.). If someone searches for "exploded", we would want to retreive documents with explode in it. One query which demonstrates the importance of the stemming filter in our examples is "the effects of solar flares on the absorption of cosmic radio noise in the ionosphere". Withouth the filter, it has an average precision of 0.01, but with the filter, it has an average precision of 0.8 because it is able to capture the root of the words such as absorb, flare, effect, etc. 
+
+When not using the stopwords filter, the MAP is MAP: 0.2578. For certain queries that contain many stopwords, the stopword filter proves to be very beneficial because it is only capturing the most semantically important words in the query.
+
+Overall, the document analyzer is very important for retreival effectiveness.
+
 
 
 
@@ -21,23 +41,30 @@ TF-IDF VS. BM25
 	TF-IDF Avg Precision: 0.12333333333333334
 	BM25 Avg Precision: 0.6365476190476189
 
+	Query: optimising linear networks
+	TF-IDF Avg Precision: 0.3696428571428571
+	BM25 Avg Precision: 0.8521031746031745
+
 	==> This is probably due to ...
 
 
 BM25 VS. Dirichlet Prior
 
-Query: control characteristics of sampling servo systems
-  1. 6947
-  2. 4412
-  3. 6138
-  4. 7647
-X 5. 6051
-  6. 7762
-X 7. 6866
-X 8. 6332
-X 9. 9788
-X 10. 1735
-Average Precision: 0.4833333333333333
+
+
+
+Query: advantages of parametric amplifiers
+	BM25 Average Precision: 0.36666666666666664
+	DP Average Precision: 0.5380952380952382
+
+
+Query: mathematical expressions and graphs for the design of transistorised tuned pass band amplifiers
+BM25 Average Precision: 0.3211111111111111
+DP Average Precision: 0.045
+
+Query: observations of rapid fluctuations in the earths magnetic field and their relation to the propagation of hydromagnetic waves in the exosphere
+BM25 Average Precision: 0.5264285714285715
+DP Average Precision: 0.24285714285714283
 
 
 

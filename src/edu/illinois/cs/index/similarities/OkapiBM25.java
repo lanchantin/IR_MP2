@@ -20,16 +20,17 @@ public class OkapiBM25 extends SimilarityBase {
     	
     	long N = stats.getNumberOfDocuments();
     	long df = stats.getDocFreq();
-    	float cwd = termFreq;
-    	float cwq = 1;
+    	float tf = termFreq;
+    	float qtf = 1;
     	float n = docLength;
     	float n_avg = stats.getAvgFieldLength();
+    	double K = k1*(1-b+(b*(n/n_avg)));
     	
-    	double t1 = Math.log((N - df + 0.5)/(df + 0.5));
-    	double t2 = ((k1+1)*(cwd))/((k1*(1-b+(b*(n/n_avg))))+cwd);
-    	double t3 = ((k2+1)*(cwq))/(k2+cwq);
+    	double docIDF = Math.log((N - df + 0.5)/(df + 0.5));
+    	double docTF = ((k1+1)*(tf))/(K+tf);
+    	double queryTF = ((k2+1)*(qtf))/(k2+qtf);
 
-        return (float) (t1*t2*t3);
+        return (float) (docIDF*docTF*queryTF);
     }
 
     @Override

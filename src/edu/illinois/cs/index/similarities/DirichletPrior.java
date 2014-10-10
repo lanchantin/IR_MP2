@@ -11,22 +11,15 @@ public class DirichletPrior extends LMSimilarity {
     public DirichletPrior() {
         model = new LMSimilarity.DefaultCollectionModel();
     }
-
-    /**
-     * Returns a score for a single term in the document.
-     *
-     * @param stats
-     *            Provides access to corpus-level statistics
-     * @param termFreq
-     * @param docLength
-     */
+    
     @Override
     protected float score(BasicStats stats, float termFreq, float docLength) {    	
-    	double u = 400;
+    	double u = 2000;
     	double alpha = u/(u+docLength);
-    	double ps = (termFreq+ u*model.computeProbability(stats))/(docLength+u);
+    	double pwc = model.computeProbability(stats);
+    	double pwd = (termFreq+ u*pwc)/(docLength+u);
     	
-    	double r = Math.log(ps/(alpha*model.computeProbability(stats))) + queryLength*Math.log(alpha);
+    	double r = Math.log(pwd/(alpha*pwc)) + Math.log(alpha);
         return (float) r;
     }
 

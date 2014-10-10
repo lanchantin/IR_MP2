@@ -30,11 +30,11 @@ public class Evaluate {
 	public static void main(String[] args) throws IOException {
 		//String method = "--bdp";
 		//String method = "--tfidf";
-		String method = "--ok";
+		//String method = "--ok";
 		//String method = "--pl";
 		//String method = "--jm";
-		//String method = "--dp";
-		
+		String method = "--dp";
+		 
 		_searcher = new Searcher(_indexPath);		
 		Runner.setSimilarity(_searcher, method);
 		BufferedReader br = new BufferedReader(new FileReader(_judgeFile));

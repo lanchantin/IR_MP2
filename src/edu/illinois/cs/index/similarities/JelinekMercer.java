@@ -23,9 +23,10 @@ public class JelinekMercer extends LMSimilarity {
     @Override
     protected float score(BasicStats stats, float termFreq, float docLength) {
     	double lambda = 0.9;
-    	double ps = (1-lambda)*(termFreq/docLength) + lambda*model.computeProbability(stats);
+    	double pwd = (1-lambda)*(termFreq/docLength) + lambda*model.computeProbability(stats);
+    	double pwc = model.computeProbability(stats);
     	
-        return (float) (Math.log(ps/(lambda*model.computeProbability(stats))) + queryLength*Math.log(lambda));
+        return (float) (Math.log(pwd/(lambda*pwc)));
     }
 
     @Override

@@ -14,12 +14,10 @@ public class BooleanDotProduct extends SimilarityBase {
      */
     @Override
     protected float score(BasicStats stats, float termFreq, float docLength) {
-    	if (termFreq >= 1){
+    	if (termFreq >= 1) //return 1 if this term exists in the document
     		return 1;
-    	}
-    	else{
+    	else
     		return 0;
-    	}
     }
 
     @Override

@@ -14,13 +14,12 @@ public class DirichletPrior extends LMSimilarity {
     
     @Override
     protected float score(BasicStats stats, float termFreq, float docLength) {    	
-    	double u = 2000;
+    	double u = 2000; //chosen parameter
     	double alpha = u/(u+docLength);
-    	double pwc = model.computeProbability(stats);
-    	double pwd = (termFreq+ u*pwc)/(docLength+u);
+    	double pwc = model.computeProbability(stats); //p_s(w|C)
+    	double pwd = (termFreq + u*pwc)/(docLength+u); //p(w|d) -> dirichlet prior model
     	
-    	double r = Math.log(pwd/(alpha*pwc)) + Math.log(alpha);
-        return (float) r;
+        return (float) (Math.log(pwd/(alpha*pwc)) + Math.log(alpha)); //ranking function
     }
 
     @Override
